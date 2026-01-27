@@ -9,8 +9,9 @@
     "start": "cross-env NODE_OPTIONS='--no-deprecation' next start",
     "lint": "next lint",
     "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap",
-    "db:fresh":"payload migrate:fresh"
+    "db:fresh": "payload migrate:fresh",
+    "db:seed": "bun run src/seed.ts",
+    "db:reset": "bun run db:fresh && bun run db:seed"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -49,6 +50,7 @@
     "cmdk": "^1.1.1",
     "cross-env": "^10.1.0",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
     "embla-carousel-react": "^8.6.0",
     "graphql": "^16.8.1",
     "input-otp": "^1.4.2",
@@ -70,14 +72,15 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
