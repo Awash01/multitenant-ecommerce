@@ -44,9 +44,9 @@ export const SearchInput = ({
                asChild
                variant="elevated"
             >
-               <Link href = "/liberary">
+               <Link href = "/Library">
                   <BookmarkCheckIcon />
-                  Liberary
+                   Library 
                </Link>
 
             </Button>
