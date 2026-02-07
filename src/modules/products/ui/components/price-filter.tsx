@@ -12,7 +12,7 @@ interface Props{
     onMaxPriceChange: (value: string) => void;
 }
 
-export const formateAsCurrency = (value: string) => {
+export const formatAsCurrency = (value: string) => {
     const numericValue = value.replace(/[^0-9.]/g, "");
 
     const parts = numericValue.split(".");
@@ -57,7 +57,7 @@ export const PriceFilter = ({
                 <Input
                     type="text"
                     placeholder="$0"
-                    value={minPrice ? formateAsCurrency(minPrice):""}
+                    value={minPrice ? formatAsCurrency(minPrice):""}
                     onChange={handleMinPriceChange}
                 />
 
@@ -69,7 +69,7 @@ export const PriceFilter = ({
                 <Input
                     type="text"
                     placeholder="∞"
-                    value={maxPrice ? formateAsCurrency(maxPrice):""}
+                    value={maxPrice ? formatAsCurrency(maxPrice):""}
                     onChange={handleMaxPriceChange}
                 />
 
