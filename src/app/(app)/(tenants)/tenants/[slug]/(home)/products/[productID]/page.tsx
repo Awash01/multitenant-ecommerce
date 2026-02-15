@@ -1,0 +1,24 @@
+import { ProductView } from "@/modules/products/ui/views/product-view";
+import { getQueryClient, trpc } from "@/trpc/server";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+
+interface Props {
+    params: Promise<{productID: string; slug:string}>;
+};
+
+
+const page = async ({ params }:Props) => {
+  const {productID, slug} = await params;
+
+  const queryClient = getQueryClient();
+  void queryClient.prefetchQuery(trpc.tenants.getOne.queryOptions({
+    slug,
+  }))
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+        <ProductView productID={productID} tenantSlug={slug}/>
+    </HydrationBoundary>
+  )
+}
+
+export default page
