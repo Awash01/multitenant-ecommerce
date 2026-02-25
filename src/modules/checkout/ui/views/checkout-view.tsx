@@ -21,6 +21,7 @@ export const CheckoutView = ({tenantSlug}:CheckoutViewProps) => {
     const [states, setStates] = useCheckoutStates();
     const {productIds, removeProduct, clearCart} = useCart(tenantSlug);
     
+    
     const trpc = useTRPC();
     const {data, error,  isLoading} = useQuery(trpc.checkout.getProducts.queryOptions({
         ids:productIds,
