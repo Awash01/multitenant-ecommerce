@@ -1,7 +1,7 @@
 import type Stripe from "stripe";
 
 export type ProductMetadata = {
-    stripeAccountId: string;
+    stripeAccountID: string;
     id: string;
     name: string;
     price: number;
