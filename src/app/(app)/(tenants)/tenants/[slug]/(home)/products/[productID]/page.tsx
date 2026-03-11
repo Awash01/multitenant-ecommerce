@@ -6,6 +6,7 @@ import { Suspense } from "react";
 interface Props {
     params: Promise<{productID: string; slug:string}>;
 };
+export const dynamic = "force-dynamic";
 
 
 const page = async ({ params }:Props) => {
